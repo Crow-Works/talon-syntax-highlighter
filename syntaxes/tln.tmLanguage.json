@@ -1,0 +1,85 @@
+{
+    "fileTypes": [
+        "tln", "talon"
+    ],
+    "patterns": [
+		{ "include": "#comments" },
+		{ "include": "#brackets" },
+		{ "include": "#autoClosingPairs" },
+		{ "include": "#surroundingPairs" },
+        { "include": "#sections" },
+        { "include": "#variables" },
+        { "include": "#keywords" },
+        { "include": "#subKeywords" }
+    ],
+    "repository": {
+		"comments": {
+			"lineComment": "//",
+			"blockComment": [ "/*", "*/" ]
+		},
+
+        "escape": {
+            "match": "\\\\(x[0-9a-fA-F]{2}|[0-7]{3}|[btnfr\"'\\\\])",
+            "name": "constant.character.escape.tln"
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "match": "^\t-\\s\\w+:",
+                    "name": "entity.name.class.tln"
+                },
+                {
+                    "match": "\\b(binary|static|dynamic)\\b",
+                    "name": "storage.type.tln"
+                }
+            ]
+        },
+        "sections": {
+            "patterns": [
+                {
+                    "begin": "\\[(\\w+)\\]",
+                    "captures": { "1": { "name": "entity.name.section.tln" } },
+                    "end": "(?=\\[|$)",
+                    "name": "entity.name.section.tln"
+                }
+            ]
+        },
+        "subKeywords": {
+            "patterns": [
+                {
+                    "match": "^\t\t-\\s\\w+:",
+                    "name": "entity.name.tag.tln"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "begin": "\\{",
+                    "end": "\\}",
+                    "name": "variable.list.tln",
+                    "patterns": [ { "include": "#variables" } ]
+                },
+                {
+                    "match": "\\w+:",
+                    "name": "variable.name.tln"
+                },
+                {
+                    "begin": "\"",
+                    "end": "\"",
+                    "name": "string.quoted.double.tln",
+                    "patterns": [ { "include": "#escape" } ]
+                },
+                {
+                    "match": "\\b(true|false)\\b",
+                    "name": "constant.language.boolean.tln"
+                },
+				{
+					"match": "@\\w+(?=\\.)",
+					"name": "variable.parameter.tln"
+				}
+            ]
+        }
+    },
+    "scopeName": "source.tln"
+}

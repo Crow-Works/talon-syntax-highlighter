@@ -1,0 +1,66 @@
+[Config]:
+	- BuildDir: "build"
+	- BinaryDir: "bin"
+	- LibraryDir: "lib"
+	- DependencyDir: "vendor"
+	- ParallelBuild: true
+
+[Projects]:
+	RavenEngineCore: static
+	Test: dynamic
+	RavenEngine: binary
+
+[Dependencies]:
+	RavenDependencyRepo:
+	{
+		Version: ">=1.0",
+		Repo: "https://github.com/Crow-Works/Raven-Dependency-Repo.git"
+	},
+	NewDependency:
+	{
+		Version: ">=1.2",
+		Repo: "https://github.com/example/NewDependency.git"
+	}
+
+
+[Build]:
+	- IncludeDirs: { "src/", "vendor/" }
+	- SourceDirs: { @Projects.RavenEngineCore: "Raven", @Projects.RavenEngine: "Blackbird" } 
+	- Configuration:
+		- Name: Debug
+			CompilerFlags: { -g, -O0 }
+		- Name: Release
+			CompilerFlags: { -O3 }
+	- Target:
+		- Platform: linux
+			CompilerFlags: { -DLINUX }
+		- Platform: windows
+			CompilerFlags: { -DWINDOWS }
+	- ConditionalCompilation:
+		- Condition: ENABLE_FEATURE_X
+			CompilerFlags: { -DFEATURE_X_ENABLED }
+	- CustomSteps:
+		- Step: generate_version_header.sh
+		- Step: run_tests.sh
+	- Environment:
+		- CC: /usr/bin/gcc
+		- CXX: /usr/bin/g++
+	- TargetArch: arm64
+		- CompilerFlags: { -march=arm64 }
+	- PreBuild: setup_environment.sh
+	- PostBuild: package_artifacts.sh
+	- CodeAnalysis:
+		- Tool: clang-tidy
+		- Options: { -checks=* }
+
+[Link]:
+	@Projects.RavenEngineCore: { @Dependency.RavenDependencyRepo }
+	@Projects.RavenEngine: { @Projects.RavenEngineCore, @Dependency.NewDependency }
+
+[Test]:
+	- Framework: Catch2
+	- Options: { -r junit }
+
+[Tools]:
+	- Name: Doxygen
+	- ConfigFile: Doxyfile
