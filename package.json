@@ -9,8 +9,6 @@
   "categories": [
     "Programming Languages"
   ],
-  "main": "./grammar.js",
-
   "contributes": {
     "languages": [
       {

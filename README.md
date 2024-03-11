@@ -1,65 +1,31 @@
-# talon-syntax-highlighter README
+# Talon Syntax Highlighter
 
-This is the README for your extension "talon-syntax-highlighter". After writing up a brief description, we recommend including the following sections.
+The Talon Syntax Highlighter is a Visual Studio Code extension designed to provide syntax highlighting support for `.tln` files used by the Talon build system. It enables developers to easily visualize and understand the structure of Talon build configurations within their code editor.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Syntax highlighting for `.tln` files according to the Talon build system syntax.
+- Highlights keywords, sections, variables, and other elements to improve code readability.
+- Provides color-coded differentiation between different components of the build configuration.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+To install the Talon Syntax Highlighter extension, follow these steps:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Launch Visual Studio Code.
+2. Go to the Extensions view by clicking on the square icon in the sidebar.
+3. Search for "Talon Syntax Highlighter".
+4. Click on the Install button to install the extension.
+5. Once installed, the extension will automatically provide syntax highlighting for `.tln` files.
 
-## Requirements
+## Usage
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+After installing the extension, open any `.tln` file in Visual Studio Code, and the syntax highlighting will be applied automatically. The extension will highlight keywords, sections, variables, and other elements according to the Talon build system syntax, enhancing the readability of your code.
 
-## Extension Settings
+## Contributing
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+If you encounter any issues or have suggestions for improvements, feel free to contribute to the development of the Talon Syntax Highlighter extension. You can report issues or submit pull requests on the [GitHub repository](https://github.com/Crow-Works/talon-syntax-highlighter).
 
-For example:
+## License
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This extension is licensed under the [MIT License](LICENSE).
